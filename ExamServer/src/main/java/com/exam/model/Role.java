@@ -1,16 +1,19 @@
 package com.exam.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Data
 @Table(name="roles")
 public class Role {
 
     @Id
-    private Long roleId;
-    private String roleName;
+    private Long Id;
+    private String role;
 
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private Set<UserRole> userRoles = new HashSet<>();
@@ -26,24 +29,24 @@ public class Role {
         this.userRoles = userRoles;
     }
 
-    public Role(Long roleId, String roleName) {
-        this.roleId = roleId;
-        this.roleName = roleName;
+    public Role(Long Id, String role) {
+        this.Id = Id;
+        this.role = role;
     }
 
-    public Long getRoleId() {
-        return roleId;
+    public Long getId() {
+        return Id;
     }
 
-    public void setRoleId(Long roleId) {
-        this.roleId = roleId;
+    public void setId(Long Id) {
+        this.Id = Id;
     }
 
-    public String getRoleName() {
-        return roleName;
+    public String getRole() {
+        return role;
     }
 
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
+    public void setRole(String role) {
+        this.role = role;
     }
 }

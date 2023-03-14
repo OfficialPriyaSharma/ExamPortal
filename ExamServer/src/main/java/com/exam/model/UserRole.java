@@ -1,8 +1,11 @@
 package com.exam.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 @Entity
+@Data
 public class UserRole {
 
     @Id

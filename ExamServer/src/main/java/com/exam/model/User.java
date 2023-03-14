@@ -1,6 +1,8 @@
 package com.exam.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
+
 import javax.persistence.Table;
 
 import javax.persistence.*;
@@ -8,16 +10,17 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Data
 @Table(name="users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String username;
+    private String userName;
     private String password;
-    private String firstname;
-    private String lastname;
+    private String firstName;
+    private String lastName;
     private String email;
     private String phone;
     private boolean enabled=true;
@@ -39,23 +42,15 @@ public class User {
         this.userRoles = userRoles;
     }
 
-    public User(Long id, String username, String password, String firstname, String lastname, String email, String phone, boolean enabled, String profile) {
+    public User(Long id, String userName, String password, String firstName, String lastName, String email, String phone, boolean enabled, String profile) {
         this.id = id;
-        this.username = username;
+        this.userName = userName;
         this.password = password;
-        this.firstname = firstname;
-        this.lastname = lastname;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.phone = phone;
         this.enabled = enabled;
-        this.profile = profile;
-    }
-
-    public String getProfile() {
-        return profile;
-    }
-
-    public void setProfile(String profile) {
         this.profile = profile;
     }
 
@@ -67,12 +62,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getPassword() {
@@ -83,20 +78,20 @@ public class User {
         this.password = password;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -121,5 +116,13 @@ public class User {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public String getProfile() {
+        return profile;
+    }
+
+    public void setProfile(String profile) {
+        this.profile = profile;
     }
 }
