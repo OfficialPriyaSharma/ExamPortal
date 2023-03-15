@@ -10,14 +10,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Data
 @Table(name="users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String userName;
+    private String username;
     private String password;
     private String firstName;
     private String lastName;
@@ -42,9 +41,9 @@ public class User {
         this.userRoles = userRoles;
     }
 
-    public User(Long id, String userName, String password, String firstName, String lastName, String email, String phone, boolean enabled, String profile) {
+    public User(Long id, String username, String password, String firstName, String lastName, String email, String phone, boolean enabled, String profile, Set<UserRole> userRoles) {
         this.id = id;
-        this.userName = userName;
+        this.username = username;
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -52,6 +51,7 @@ public class User {
         this.phone = phone;
         this.enabled = enabled;
         this.profile = profile;
+        this.userRoles = userRoles;
     }
 
     public Long getId() {
@@ -62,12 +62,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {

@@ -31,14 +31,14 @@ public class ExamServerApplication implements CommandLineRunner {
 
 		user.setFirstName("Priya");
 		user.setLastName("Sharma");
-		user.setUserName("priya27");
+		user.setUsername("priya27");
 		user.setPassword("priyaaa");
 		user.setEmail("priyaaa@gmail.com");
 		user.setProfile("default.png");
 
 		Role role1 = new Role();
-		role1.setId(11L);
-		role1.setRole("ADMIN");
+		role1.setRoleId(11L);
+		role1.setRoleName("ADMIN");
 
 		Set<UserRole> userRoleSet = new HashSet<>();
 		UserRole userRole = new UserRole();
@@ -48,7 +48,7 @@ public class ExamServerApplication implements CommandLineRunner {
 		userRoleSet.add(userRole);
 
 		User user1 = this.userService.createUser(user,userRoleSet);
-		System.out.println(user1.getUserName());
+		System.out.println(user1.getUsername());
 
 	}
 }
