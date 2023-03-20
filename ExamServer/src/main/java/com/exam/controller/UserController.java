@@ -5,10 +5,7 @@ import com.exam.model.User;
 import com.exam.model.UserRole;
 import com.exam.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -26,7 +23,7 @@ public class UserController {
 
         Role role = new Role();
         role.setRoleId(21L);
-        role.setRoleName("NORMAL");
+        role.setRoleName("NORMAL USER");
 
         UserRole userRole = new UserRole();
         userRole.setUser(user);
@@ -35,4 +32,5 @@ public class UserController {
 
         return this.userService.createUser(user,roles);
     }
+
 }
