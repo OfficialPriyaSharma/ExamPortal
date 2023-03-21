@@ -33,4 +33,10 @@ public class UserController {
         return this.userService.createUser(user,roles);
     }
 
+        @GetMapping("/{username}")
+        public User getUser(@PathVariable("username") String username)
+        {
+
+        }
+
 }
