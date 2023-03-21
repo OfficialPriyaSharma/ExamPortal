@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
 //    getting user by username
     @Override
     public User getUser(String username) {
-        return null;
+        return this.userRepository.findByUsername(username);
     }
 }
 
